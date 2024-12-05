@@ -2,12 +2,7 @@
 
 Esta aplicación API se crea con **MySql, Express, React, Node**
 
-Descripción: Vas a construir una API REST para gestionar las ventas y gastos de una empresa. La API debe permitir a los usuarios realizar operaciones CRUD en las ventas y gastos, generar reportes y manejar la autenticación de usuarios.
-
-¡Claro! Aquí tienes un ejercicio para desarrollar una API más compleja, con un enfoque más realista para un entorno de trabajo:
-Proyecto: API de Gestión de Ventas y Gastos
-
-Descripción: Vas a construir una API REST para gestionar las ventas y gastos de una empresa. La API debe permitir a los usuarios realizar operaciones CRUD en las ventas y gastos, generar reportes y manejar la autenticación de usuarios.
+Descripción: Construir una API REST para gestionar las ventas y gastos de una empresa. La API debe permitir a los usuarios realizar operaciones CRUD en las ventas y gastos, generar reportes y manejar la autenticación de usuarios.
 
 # Requisitos Funcionales
 > Autenticación y Autorización
