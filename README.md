@@ -15,37 +15,37 @@ Descripción: Vas a construir una API REST para gestionar las ventas y gastos de
     Implementar un sistema de autenticación con JWT.
     Solo los usuarios autenticados pueden realizar operaciones.
     Roles de usuario:
-        Admin: Puede realizar cualquier operación.
-        User: Puede solo leer y registrar ventas y gastos.
+        - Admin: Puede realizar cualquier operación.
+        - User: Puede solo leer y registrar ventas y gastos.
 
 > Gestión de Ventas
 
     Crear, leer, actualizar y eliminar ventas.
     Cada venta debe incluir:
-        ID único.
-        Fecha de la venta.
-        Tienda donde se realizó.
-        Vendedor responsable.
-        Lista de productos vendidos (con nombre, cantidad, precio unitario y subtotal).
-        Total de la venta.
-        Método de pago (efectivo, tarjeta, transferencia, depósito).
+        - ID único.
+        - Fecha de la venta.
+        - Tienda donde se realizó.
+        - Vendedor responsable.
+        - Lista de productos vendidos (con nombre, cantidad, precio unitario y subtotal).
+        - Total de la venta.
+        - Método de pago (efectivo, tarjeta, transferencia, depósito).
 
 > Gestión de Gastos
 
     Crear, leer, actualizar y eliminar gastos.
     Cada gasto debe incluir:
-        ID único.
-        Fecha del gasto.
-        Categoría (ej. Alquiler, Sueldos, Suministros, Otros).
-        Monto.
-        Descripción.
-        Tienda asociada.
+        - ID único.
+        - Fecha del gasto.
+        - Categoría (ej. Alquiler, Sueldos, Suministros, Otros).
+        - Monto.
+        - Descripción.
+        - Tienda asociada.
 
 > Reportes
 
     Generar reportes agregados por fecha, tienda o vendedor:
-        Totales de ventas y gastos.
-        Ganancia neta (ventas - gastos).
+        - Totales de ventas y gastos.
+        - Ganancia neta (ventas - gastos).
     Opción para exportar reportes en formato JSON o CSV.
 
 > Manejo de Errores
