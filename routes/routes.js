@@ -5,14 +5,47 @@ import { authToken } from '../middlewares/authToken.js';
 
 const router = express.Router();
 
-router.post("/login", loginController);
-router.post("/registrar", registrarUsuarioController);
-router.post("/refrescar", refreshToken);
+router.post("/auth/login", loginController);
+router.post("/auth/register", registrarUsuarioController);
+router.post("/auth/refresh", refreshToken);
 router.post("/protected", authToken, (req, res) => {
     res.json({
         mensaje: "Ruta protejida accesible",
         usuario: req.user
     })
+});
+
+router.get("/ventas");
+router.get("/ventas/:id");
+router.post("/ventas");
+router.put("/ventas/:id");
+router.delete("/ventas/:id");
+
+router.get("/gastos");
+router.get("/gastos/:id");
+router.post("/gastos");
+router.put("/gastos/:id");
+router.delete("/gastos/:id");
+
+router.get("/reportes/ventas");
+router.get("/reportes/gastos");
+router.get("/reportes/ganancia-neta");
+
+
+// ******************* Ejemplo de rutas protegidas ****************
+router.get("/protected/reportes", authToken, (req, res) => {
+    // Aquí puedes definir la lógica para obtener los reportes
+    // Ejemplo de datos simulados
+    const reportes = [
+        { id: 1, nombre: "Reporte A", fecha: "2024-11-01" },
+        { id: 2, nombre: "Reporte B", fecha: "2024-11-02" },
+    ];
+
+    res.json({
+        mensaje: "Reportes obtenidos exitosamente",
+        usuario: req.user, // Información del usuario autenticado
+        data: reportes,
+    });
 });
 
 export default router;
