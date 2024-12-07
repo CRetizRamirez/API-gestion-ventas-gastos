@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-export const refreshTokenController =(req, res)=>{
-
+export const refreshToken =(req, res)=>{
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 
