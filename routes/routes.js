@@ -1,17 +1,17 @@
 import express from 'express';
-import { registrarUsuarioController, loginController } from '../controllers/usuarioController.js';
+import { registrarVendedorController, loginController } from '../controllers/vendedorController.js';
 import { refreshToken } from '../middlewares/refreshToken.js';
 import { authToken } from '../middlewares/authToken.js';
 
 const router = express.Router();
 
 router.post("/auth/login", loginController);
-router.post("/auth/register", registrarUsuarioController);
+router.post("/auth/register", registrarVendedorController);
 router.post("/auth/refresh", refreshToken);
 router.post("/protected", authToken, (req, res) => {
     res.json({
         mensaje: "Ruta protejida accesible",
-        usuario: req.user
+        vendedor: req.user
     })
 });
 
