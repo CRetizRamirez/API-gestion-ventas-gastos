@@ -1,9 +1,9 @@
 import db from '../database/db.js';
 
 const VentasModel = {
-    createVenta: async (nota, total, tienda, vendedor, metodoPago, productos) => { 
+    createVenta: async (nota, total, tienda, vendedor, metodoPago, productos) => {
         const productosJson = JSON.stringify(productos); // Convertir a JSON string
-        await db.query('CALL sp_CrearVenta(?,?,?,?,?,?)',[nota, total, tienda, vendedor, metodoPago, productosJson])
+        await db.query('CALL sp_CrearVenta(?,?,?,?,?,?)', [nota, total, tienda, vendedor, metodoPago, productosJson])
     },
 
     readVentas: async (FechaVenta) => {
@@ -16,7 +16,10 @@ const VentasModel = {
         return row[0];
     },
 
-    updateVenta: async (id_Venta) => { },
+    updateVenta: async (id, total, tienda, vendedor, metodoPago, nota, productos) => {
+        const productosJson = JSON.stringify(productos); // Convertir a JSON string
+        await db.query('CALL sp_EditarVenta(?,?,?,?,?,?,?)', [id, total, tienda, vendedor, metodoPago, nota, productosJson])
+    },
 
     deleteVenta: async (id_Venta) => {
         await db.query('CALL sp_EliminarVenta(?)', [id_Venta])

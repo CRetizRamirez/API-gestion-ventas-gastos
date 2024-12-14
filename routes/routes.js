@@ -19,7 +19,7 @@ router.post("/protected", authToken, (req, res) => {
 router.get("/ventas", VentasController.leerTodas);
 router.get("/ventas/:id", VentasController.leerUna);
 router.post("/ventas", VentasController.crear);
-router.put("/ventas/:id");
+router.put("/ventas/:id", VentasController.actualizar);
 router.delete("/ventas/:id", VentasController.eliminar);
 
 router.get("/gastos");

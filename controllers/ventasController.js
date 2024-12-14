@@ -1,14 +1,14 @@
 import VentasModel from "../models/ventasModel.js";
 
 const VentasController = {
-    crear: async (req, res) => { 
-        const{Nota, Total, Tienda, Vendedor, MetodoPago, Productos}=req.body;
+    crear: async (req, res) => {
+        const { Nota, Total, Tienda, Vendedor, MetodoPago, Productos } = req.body;
         try {
             await VentasModel.createVenta(Nota, Total, Tienda, Vendedor, MetodoPago, Productos)
-            res.status(201).json({message:'Venta creada correctamente'})          
+            res.status(201).json({ message: 'Venta creada correctamente' })
         } catch (error) {
             console.log(error);
-            res.status(500).json({message:'Error al crear la Venta'})
+            res.status(500).json({ message: 'Error al crear la Venta' })
         }
     },
 
@@ -34,7 +34,17 @@ const VentasController = {
         }
     },
 
-    actualizar: (req, res) => { },
+    actualizar: async (req, res) => {
+        const { Total, Tienda, Vendedor, MetodoPago, Nota, Productos } = req.body;
+        const { id } = req.params;
+        try {
+            await VentasModel.updateVenta(id, Total, Tienda, Vendedor, MetodoPago, Nota, Productos)
+            res.json({ message: 'Venta actualizada correctamente'})
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Error al actualizar la Venta' })
+        }
+    },
 
     eliminar: async (req, res) => {
         const { id } = req.params;
