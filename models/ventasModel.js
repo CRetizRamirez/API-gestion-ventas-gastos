@@ -1,7 +1,10 @@
 import db from '../database/db.js';
 
 const VentasModel = {
-    createVenta: () => { },
+    createVenta: async (nota, total, tienda, vendedor, metodoPago, productos) => { 
+        const productosJson = JSON.stringify(productos); // Convertir a JSON string
+        await db.query('CALL sp_CrearVenta(?,?,?,?,?,?)',[nota, total, tienda, vendedor, metodoPago, productosJson])
+    },
 
     readVentas: async (FechaVenta) => {
         const [rows] = await db.query('CALL sp_LeerVentas(?)', [FechaVenta]);

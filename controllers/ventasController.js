@@ -1,7 +1,16 @@
 import VentasModel from "../models/ventasModel.js";
 
 const VentasController = {
-    crear: (req, res) => { },
+    crear: async (req, res) => { 
+        const{Nota, Total, Tienda, Vendedor, MetodoPago, Productos}=req.body;
+        try {
+            await VentasModel.createVenta(Nota, Total, Tienda, Vendedor, MetodoPago, Productos)
+            res.status(201).json({message:'Venta creada correctamente'})          
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({message:'Error al crear la Venta'})
+        }
+    },
 
     leerTodas: async (req, res) => {
         const { FechaVenta } = req.body;
