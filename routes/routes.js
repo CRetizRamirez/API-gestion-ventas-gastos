@@ -2,6 +2,7 @@ import express from 'express';
 import { registrarVendedorController, loginController } from '../controllers/vendedorController.js';
 import { refreshToken } from '../middlewares/refreshToken.js';
 import { authToken } from '../middlewares/authToken.js';
+import VentasController from '../controllers/ventasController.js';
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ router.get("/ventas");
 router.get("/ventas/:id");
 router.post("/ventas");
 router.put("/ventas/:id");
-router.delete("/ventas/:id");
+router.delete("/ventas/:id", VentasController.eliminar);
 
 router.get("/gastos");
 router.get("/gastos/:id");
@@ -30,7 +31,6 @@ router.delete("/gastos/:id");
 router.get("/reportes/ventas");
 router.get("/reportes/gastos");
 router.get("/reportes/ganancia-neta");
-
 
 // ******************* Ejemplo de rutas protegidas ****************
 router.get("/protected/reportes", authToken, (req, res) => {
