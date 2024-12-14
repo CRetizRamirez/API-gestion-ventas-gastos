@@ -16,8 +16,8 @@ router.post("/protected", authToken, (req, res) => {
     })
 });
 
-router.get("/ventas");
-router.get("/ventas/:id");
+router.get("/ventas", VentasController.leerTodas);
+router.get("/ventas/:id", VentasController.leerUna);
 router.post("/ventas");
 router.put("/ventas/:id");
 router.delete("/ventas/:id", VentasController.eliminar);
