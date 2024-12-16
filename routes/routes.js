@@ -3,6 +3,7 @@ import { registrarVendedorController, loginController } from '../controllers/ven
 import { refreshToken } from '../middlewares/refreshToken.js';
 import { authToken } from '../middlewares/authToken.js';
 import VentasController from '../controllers/ventasController.js';
+import varController from '../controllers/varController.js';
 
 const router = express.Router();
 
@@ -31,6 +32,12 @@ router.delete("/gastos/:id");
 router.get("/reportes/ventas");
 router.get("/reportes/gastos");
 router.get("/reportes/ganancia-neta");
+
+router.get("/categorias", varController.leerCategorias);
+router.get("/metodospago", varController.leerMetodosPago);
+router.get("/roles", varController.leerRoles);
+router.get("/tiendas", varController.leerTiendas);
+router.get("/vendedores", varController.leerVendedores);
 
 // ******************* Ejemplo de rutas protegidas ****************
 router.get("/protected/reportes", authToken, (req, res) => {
