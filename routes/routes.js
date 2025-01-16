@@ -18,7 +18,7 @@ router.post("/protected", authToken, (req, res) => {
     })
 });
 
-router.get("/ventas", VentasController.leerTodas);
+router.get("/ventas", VentasController.leerTodas);  //Lee las ventas a partir de una "FechaVenta" desde el body
 router.get("/ventas/:id", VentasController.leerUna);
 router.post("/ventas", VentasController.crear);
 router.put("/ventas/:id", VentasController.actualizar);
